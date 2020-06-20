@@ -7,12 +7,16 @@ import { OperadorComponent } from './operador/operador.component';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastrarOperadorComponent } from './operador/cadastrar-operador/cadastrar-operador.component';
 import { FormsModule } from "@angular/forms";
+import { EditarOperadorComponent } from './operador/editar-operador/editar-operador.component';
+import { DeletarOperadorComponent } from './operador/deletar-operador/deletar-operador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OperadorComponent,
-    CadastrarOperadorComponent
+    CadastrarOperadorComponent,
+    EditarOperadorComponent,
+    DeletarOperadorComponent
   ],
   imports: [
     BrowserModule,

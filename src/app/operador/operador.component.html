@@ -7,6 +7,7 @@
         <td>Senha</td>
         <td>Criado em</td>
         <td>Última Modificação</td>
+        <td></td>
     </thead>
     <tbody>
         <tr *ngFor="let operador of operadores">
@@ -15,6 +16,10 @@
             <td>{{ operador.senha }}</td>
             <td>{{ operador.createdAt | date: 'dd/MM/yyyy - hh:mm' }}</td>
             <td> - </td>
+            <td>
+                <a routerLink="/operadores/editar/{{ operador.id }}">EDITAR</a> |
+                <a routerLink="/operadores/deletar/{{ operador.id }}">REMOVER</a>
+            </td>
         </tr>
     </tbody>
 </table>

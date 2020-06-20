@@ -1,0 +1,13 @@
+<h2>Voce deseja remover este usuario?</h2>
+
+<div *ngIf="operador">
+    <label>Id: <strong> {{ operador.id }} </strong></label>
+    <br />
+    <label>Nome: <strong> {{ operador.nome }} </strong></label>
+    <br />
+    <label>Login: <strong> {{ operador.login }} </strong> </label>
+    <br />
+    <label>Senha: <strong> {{ operador.senha }} </strong> </label>
+    <br /><br />
+    <button (click)="deletar()">Confirmar</button>
+</div>
