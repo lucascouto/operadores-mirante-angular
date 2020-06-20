@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OperadorService } from '../operador.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Operador } from '../operador.model';
 
 @Component({
@@ -15,7 +15,8 @@ export class DeletarOperadorComponent implements OnInit {
 
   constructor(
     private operadorService: OperadorService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _route: Router
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +27,14 @@ export class DeletarOperadorComponent implements OnInit {
 
   deletar() {
     this.operadorService.deleteOperador(this.id)
-      .subscribe(resposta => alert('Removido com sucesso!'))
+      .subscribe(resposta => {
+        alert('Removido com sucesso!')
+        this._route.navigate(['/operadores'])
+      })
   }
+
+  cancelar() {
+    this._route.navigate(['/operadores'])
+  }
+
 }

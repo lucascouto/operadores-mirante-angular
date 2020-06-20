@@ -29,9 +29,9 @@ export class OperadorService {
     return this.http.put<Operador>(this.url, request)
   }
 
-  deleteOperador(id: number): Observable<any> {
+  deleteOperador(id: number): Observable<String> {
     const _url = `${this.url}/${id}`
-    return this.http.delete<any>(_url)
+    return this.http.delete<String>(_url)
   }
 
 }
