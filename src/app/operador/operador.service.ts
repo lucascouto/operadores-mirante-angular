@@ -16,4 +16,15 @@ export class OperadorService {
     return this.http.get<Array<Operador>>(this.url);
   }
 
+  createOperador(request: Operador): Observable<Operador> {
+    return this.http.post<Operador>(this.url, request)
+  }
+
+  getOperador(id: number): Observable<Operador> {
+    const _url = `${this.url}/${id}`
+    return this.http.get<Operador>(_url);
+  }
+
+
+
 }

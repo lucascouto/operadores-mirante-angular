@@ -1,0 +1,17 @@
+<h2>Cadastrar Operador</h2>
+
+<div>
+    <label>Nome:
+        <input type="text" [(ngModel)]="request.nome">
+    </label>
+    <br /><br />
+    <label>Login:
+        <input type="text" [(ngModel)]="request.login">
+    </label>
+    <br /><br />
+    <label>Senha:
+        <input type="password" [(ngModel)]="request.senha">
+    </label>
+    <br /><br />
+    <button (click)="cadastrar()">Cadastrar</button>
+</div>

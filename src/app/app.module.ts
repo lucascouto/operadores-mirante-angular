@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OperadorComponent } from './operador/operador.component';
 import { HttpClientModule } from '@angular/common/http';
+import { CadastrarOperadorComponent } from './operador/cadastrar-operador/cadastrar-operador.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
     AppComponent,
-    OperadorComponent
+    OperadorComponent,
+    CadastrarOperadorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
