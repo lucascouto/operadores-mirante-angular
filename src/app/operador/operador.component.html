@@ -1,1 +1,18 @@
-<p>operador works!</p>
+<h1>Lista de Operadores</h1>
+
+<table>
+    <thead>
+        <td>Nome</td>
+        <td>Login</td>
+        <td>Senha</td>
+        <td>Criado em</td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let operador of operadores">
+            <td>{{ operador.nome }}</td>
+            <td>{{ operador.login }}</td>
+            <td>{{ operador.senha }}</td>
+            <td>{{ operador.createdAt | date: 'dd/mm/yyyy à\'s\' hh:mm:ss' }}</td>
+        </tr>
+    </tbody>
+</table>
