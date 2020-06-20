@@ -1,0 +1,17 @@
+<h2>Cadastrar Telefone</h2>
+
+<div *ngIf="telefone">
+    <label>DDD:
+        <input type="text" [(ngModel)]="telefone.ddd">
+    </label>
+    <br /><br />
+    <label>Numero:
+        <input type="text" [(ngModel)]="telefone.numero">
+    </label>
+    <br /><br />
+    <label>Tipo:
+        <input type="text" [(ngModel)]="telefone.tipo">
+    </label>
+    <br /><br />
+    <button (click)="cadastrar()">Cadastrar</button>
+</div>

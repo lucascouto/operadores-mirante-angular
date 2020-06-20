@@ -8,6 +8,7 @@ import { PessoaComponent } from './pessoa/pessoa.component';
 import { CadastrarPessoaComponent } from './pessoa/cadastrar-pessoa/cadastrar-pessoa.component';
 import { EditarPessoaComponent } from './pessoa/editar-pessoa/editar-pessoa.component';
 import { DeletarPessoaComponent } from './pessoa/deletar-pessoa/deletar-pessoa.component';
+import { CadastrarTelefoneComponent } from './telefone/cadastrar-telefone/cadastrar-telefone.component';
 
 
 const routes: Routes = [
@@ -18,7 +19,9 @@ const routes: Routes = [
   { path: "pessoas", component: PessoaComponent },
   { path: "pessoas/cadastrar", component: CadastrarPessoaComponent },
   { path: "pessoas/editar/:id", component: EditarPessoaComponent },
-  { path: "pessoas/deletar/:id", component: DeletarPessoaComponent }
+  { path: "pessoas/deletar/:id", component: DeletarPessoaComponent },
+  { path: "telefones/cadastrar/:id", component: CadastrarTelefoneComponent }
+
 ];
 
 @NgModule({
