@@ -6,4 +6,5 @@ export interface Operador {
     login: string;
     senha: string;
     createdAt: Date;
+    updatedAt: Date;
 }

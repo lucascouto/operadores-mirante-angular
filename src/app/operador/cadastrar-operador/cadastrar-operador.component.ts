@@ -15,14 +15,15 @@ export class CadastrarOperadorComponent implements OnInit {
     nome: "",
     login: "",
     senha: "",
-    createdAt: new Date()
+    createdAt: new Date(),
+    updatedAt: new Date()
   }
 
   response: Operador
 
   constructor(
     private operadorService: OperadorService,
-    private router: Router
+    private route: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,7 +31,10 @@ export class CadastrarOperadorComponent implements OnInit {
 
   cadastrar() {
     this.operadorService.createOperador(this.request)
-      .subscribe(resposta => this.response = resposta)
+      .subscribe(resposta => {
+        this.response = resposta
+        this.route.navigate(['/operadores'])
+      })
   }
 
 }

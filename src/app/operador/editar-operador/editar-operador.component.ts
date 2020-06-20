@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OperadorService } from '../operador.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Operador } from '../operador.model';
 
 @Component({
@@ -15,7 +15,8 @@ export class EditarOperadorComponent implements OnInit {
 
   constructor(
     private operadorService: OperadorService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _route: Router
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +27,8 @@ export class EditarOperadorComponent implements OnInit {
 
   editar() {
     this.request.id = this.id
-    this.operadorService.updateOperador(this.request).subscribe()
+    this.operadorService.updateOperador(this.request)
+      .subscribe(() => this._route.navigate(['/operadores']))
   }
 
 }
