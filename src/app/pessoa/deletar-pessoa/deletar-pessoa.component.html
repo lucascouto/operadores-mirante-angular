@@ -1,1 +1,24 @@
-<p>deletar-pessoa works!</p>
+<h2>Voce deseja remover essa pessoa?</h2>
+
+<div *ngIf="pessoa">
+    <label>Nome: <strong> pessoa.nome </strong></label>
+    <br /><br />
+    <label>Documento: <strong> pessoa.documento </strong>
+
+    </label>
+    <br /><br />
+    <label>Data de Nascimento: <strong> pessoa.dataNascimento </strong>
+
+    </label>
+    <br /><br />
+    <label>Nome do pai: <strong> pessoa.nomePai </strong>
+
+    </label>
+    <br /><br />
+    <label>Nome da mãe: <strong> pessoa.nomeMae </strong>
+
+    </label>
+    <br /><br />
+    <button (click)="deletar()">Remover</button>
+    <button (click)="cancelar()">Cancelar</button>
+</div>
