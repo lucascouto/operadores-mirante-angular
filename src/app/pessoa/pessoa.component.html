@@ -1,1 +1,33 @@
-<p>pessoa works!</p>
+<h1>Lista de Pessoas</h1>
+
+<table *ngIf="pessoas">
+    <thead>
+        <td>Nome</td>
+        <td>Documento</td>
+        <td>Data de Nascimento</td>
+        <td>Nome do Pai</td>
+        <td>Nome da Mãe</td>
+        <td>Operador</td>
+        <td>Telefones</td>
+        <td></td>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pessoa of pessoas">
+            <td>{{ pessoa.nome }}</td>
+            <td>{{ pessoa.documento }}</td>
+            <td>{{ pessoa.dataNascimento }}</td>
+            <td>{{ pessoa.nomePai }}</td>
+            <td>{{ pessoa.nomeMae }} </td>
+            <td>{{ pessoa.loginOperador }} </td>
+            <td>
+                <span *ngFor="let telefone of pessoa.telefones">
+                    ({{ telefone.ddd }}) {{ telefone.numero }} <br />
+                </span>
+            </td>
+            <td>
+                <a>EDITAR</a> |
+                <a>REMOVER</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
