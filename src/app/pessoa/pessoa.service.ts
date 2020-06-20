@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Pessoa, Telefone } from './pessoa.model';
+import { Pessoa, Telefone, PessoaCadastro } from './pessoa.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +17,7 @@ export class PessoaService {
     return this.http.get<Array<Pessoa>>(this.url_pessoa)
   }
 
-  createPessoa(request: Pessoa): Observable<Pessoa> {
+  createPessoa(request: PessoaCadastro): Observable<Pessoa> {
     return this.http.post<Pessoa>(this.url_pessoa, request)
   }
 
@@ -26,7 +26,7 @@ export class PessoaService {
     return this.http.get<Pessoa>(_url)
   }
 
-  updatePessoa(request: Pessoa): Observable<Pessoa> {
+  updatePessoa(request: PessoaCadastro): Observable<Pessoa> {
     return this.http.put<Pessoa>(this.url_pessoa, request)
   }
 

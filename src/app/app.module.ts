@@ -11,6 +11,8 @@ import { EditarOperadorComponent } from './operador/editar-operador/editar-opera
 import { DeletarOperadorComponent } from './operador/deletar-operador/deletar-operador.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
 import { CadastrarPessoaComponent } from './pessoa/cadastrar-pessoa/cadastrar-pessoa.component';
+import { EditarPessoaComponent } from './pessoa/editar-pessoa/editar-pessoa.component';
+import { DeletarPessoaComponent } from './pessoa/deletar-pessoa/deletar-pessoa.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { CadastrarPessoaComponent } from './pessoa/cadastrar-pessoa/cadastrar-pe
     EditarOperadorComponent,
     DeletarOperadorComponent,
     PessoaComponent,
-    CadastrarPessoaComponent
+    CadastrarPessoaComponent,
+    EditarPessoaComponent,
+    DeletarPessoaComponent
   ],
   imports: [
     BrowserModule,

@@ -17,3 +17,14 @@ export interface Pessoa {
     tipoPessoa: string;
     telefones: Telefone[];
 }
+
+export interface PessoaCadastro {
+    id: number;
+    nome: string;
+    documento: string;
+    dataNascimento: string;
+    nomePai: string;
+    nomeMae: string;
+    loginOperador: string;
+    tipoPessoa: string;
+}
