@@ -5,6 +5,7 @@ import { CadastrarOperadorComponent } from './operador/cadastrar-operador/cadast
 import { EditarOperadorComponent } from './operador/editar-operador/editar-operador.component';
 import { DeletarOperadorComponent } from './operador/deletar-operador/deletar-operador.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
+import { CadastrarPessoaComponent } from './pessoa/cadastrar-pessoa/cadastrar-pessoa.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: "operadores/editar/:id", component: EditarOperadorComponent },
   { path: "operadores/deletar/:id", component: DeletarOperadorComponent },
   { path: "pessoas", component: PessoaComponent },
+  { path: "pessoas/cadastrar", component: CadastrarPessoaComponent }
 ];
 
 @NgModule({

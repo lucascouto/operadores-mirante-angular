@@ -10,6 +10,7 @@ import { FormsModule } from "@angular/forms";
 import { EditarOperadorComponent } from './operador/editar-operador/editar-operador.component';
 import { DeletarOperadorComponent } from './operador/deletar-operador/deletar-operador.component';
 import { PessoaComponent } from './pessoa/pessoa.component';
+import { CadastrarPessoaComponent } from './pessoa/cadastrar-pessoa/cadastrar-pessoa.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PessoaComponent } from './pessoa/pessoa.component';
     CadastrarOperadorComponent,
     EditarOperadorComponent,
     DeletarOperadorComponent,
-    PessoaComponent
+    PessoaComponent,
+    CadastrarPessoaComponent
   ],
   imports: [
     BrowserModule,

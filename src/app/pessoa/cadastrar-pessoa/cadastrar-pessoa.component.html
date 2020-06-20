@@ -1,0 +1,25 @@
+<h2>Cadastrar Pessoa</h2>
+
+<div *ngIf="request">
+    <label>Nome:
+        <input type="text" [(ngModel)]="request.nome">
+    </label>
+    <br /><br />
+    <label>Documento:
+        <input type="text" [(ngModel)]="request.documento">
+    </label>
+    <br /><br />
+    <label>Data de Nascimento:
+        <input type="text" [(ngModel)]="request.dataNascimento">
+    </label>
+    <br /><br />
+    <label>Nome do pai:
+        <input type="text" [(ngModel)]="request.nomePai">
+    </label>
+    <br /><br />
+    <label>Nome da mãe:
+        <input type="text" [(ngModel)]="request.nomeMae">
+    </label>
+    <br /><br />
+    <button (click)="cadastrar()">Cadastrar</button>
+</div>
