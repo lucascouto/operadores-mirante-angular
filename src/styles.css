@@ -12,6 +12,10 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.modal-footer {
+    border-top: none;
+}
+
 .error {
     color: #a94442;
     font-weight: bolder;

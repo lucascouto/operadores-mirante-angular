@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Pessoa, PessoaCadastro } from '../pessoa.model';
-import { OperadorService } from 'src/app/operador/operador.service';
 import { Router } from '@angular/router';
 import { PessoaService } from '../pessoa.service';
+import * as Inputmask from "inputmask";
 
 @Component({
   selector: 'app-cadastrar-pessoa',
@@ -19,10 +19,12 @@ export class CadastrarPessoaComponent implements OnInit {
     nomePai: "",
     nomeMae: "",
     loginOperador: "",
-    tipoPessoa: "F"
+    tipoPessoa: ""
   }
 
   response: Pessoa
+
+  public customPatterns = { '0': { pattern: new RegExp('\[a-zA-Z\]') } };
 
   constructor(
     private pessoaService: PessoaService,
@@ -30,7 +32,7 @@ export class CadastrarPessoaComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    Inputmask().mask(document.querySelectorAll("input"));
   }
 
   cadastrar() {

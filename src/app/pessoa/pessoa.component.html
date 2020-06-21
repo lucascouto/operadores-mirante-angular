@@ -14,7 +14,7 @@
         <thead>
             <tr>
                 <th>Nome</th>
-                <th>Documento</th>
+                <th>CPF/CNPJ</th>
                 <th>Data de Nascimento</th>
                 <th>Nome do Pai</th>
                 <th>Nome da Mãe</th>
@@ -26,8 +26,9 @@
         <tbody>
             <tr *ngFor="let pessoa of pessoas">
                 <td>{{ pessoa.nome }}</td>
-                <td>{{ pessoa.documento }}</td>
-                <td>{{ pessoa.dataNascimento }}</td>
+                <td *ngIf="pessoa.tipoPessoa=='F'">{{ pessoa.documento | mask: '000.000.000-00'}}</td>
+                <td *ngIf="pessoa.tipoPessoa=='J'">{{ pessoa.documento | mask: '00.000.000/0000-00'}}</td>
+                <td>{{ pessoa.dataNascimento | date: 'dd/MM/yyyy' }}</td>
                 <td>{{ pessoa.nomePai }}</td>
                 <td>{{ pessoa.nomeMae }} </td>
                 <td>{{ pessoa.loginOperador }} </td>

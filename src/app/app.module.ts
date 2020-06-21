@@ -20,6 +20,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MAT_DATE_LOCALE } from '@angular/material/core';
+
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -45,9 +51,13 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    NgxMaskModule.forRoot()
   ],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
