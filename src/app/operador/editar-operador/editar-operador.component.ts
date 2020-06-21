@@ -31,4 +31,8 @@ export class EditarOperadorComponent implements OnInit {
       .subscribe(() => this._route.navigate(['/operadores']))
   }
 
+  cancelar() {
+    this._route.navigate(['/operadores'])
+  }
+
 }

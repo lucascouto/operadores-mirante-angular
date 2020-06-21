@@ -12,6 +12,7 @@ import { CadastrarTelefoneComponent } from './telefone/cadastrar-telefone/cadast
 
 
 const routes: Routes = [
+  { path: "", component: PessoaComponent },
   { path: "operadores", component: OperadorComponent },
   { path: "operadores/cadastrar", component: CadastrarOperadorComponent },
   { path: "operadores/editar/:id", component: EditarOperadorComponent },

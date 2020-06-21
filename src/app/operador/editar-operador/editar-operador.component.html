@@ -1,17 +1,79 @@
-<h2>Editar Operador</h2>
+<mat-card style="margin: 0 auto; width: 50%">
 
-<div *ngIf="request">
-    <label>Nome:
-        <input type="text" [(ngModel)]="request.nome">
-    </label>
-    <br /><br />
-    <label>Login:
-        <input type="text" [(ngModel)]="request.login">
-    </label>
-    <br /><br />
-    <label>Senha:
-        <input type="password" [(ngModel)]="request.senha">
-    </label>
-    <br /><br />
-    <button (click)="editar()">Editar</button>
-</div>
+
+    <mat-card-header>
+        <mat-card-title>
+            EDITAR OPERADOR {{ request.id }}
+        </mat-card-title>
+    </mat-card-header>
+
+    <br />
+
+    <mat-card-content>
+        <form #cadastroOperadorForm="ngForm">
+
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label for="nome">Nome</mat-label>
+                    <input matInput placeholder="Nome Completo" type="text" id="nome" [(ngModel)]="request.nome"
+                        name="nome" required maxlength="100" pattern="[a-zA-Z\s]*" #nome="ngModel">
+                </mat-form-field>
+                <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="error">
+                    <div *ngIf="nome.errors.required">
+                        Nome é obrigatório.
+                    </div>
+
+                    <div *ngIf="nome.errors.pattern">
+                        Nome pode conter apenas letras.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label for="login">Login</mat-label>
+                    <input matInput type="email" id="login" [(ngModel)]="request.login" name="login" required
+                        maxlength="15" pattern="[a-zA-Z]*" #login="ngModel">
+                </mat-form-field>
+                <div *ngIf="login.invalid && (login.dirty || login.touched)" class="error">
+                    <div *ngIf="login.errors.required">
+                        Login é obrigatório.
+                    </div>
+
+                    <div *ngIf="login.errors.pattern">
+                        Login pode conter apenas letras e os caracteres '-' e '_'
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <mat-form-field>
+                    <mat-label for="senha">Senha</mat-label>
+                    <input matInput type="password" id="senha" [(ngModel)]="request.senha" name="senha" required
+                        minlength="6" maxlength="15" #senha="ngModel">
+                </mat-form-field>
+
+                <div *ngIf="senha.invalid && (senha.dirty || senha.touched)" class="error">
+                    <div *ngIf="senha.errors.required">
+                        Senha é obrigatória.
+                    </div>
+                    <!-- <div *ngIf="senha.errors.pattern">
+                        A senha não pode conter espaços em branco.
+                    </div> -->
+                    <div *ngIf="senha.errors.minlength">
+                        A senha deve ter pelo menos 6 caracteres.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="modal-footer">
+            <button (click)="cancelar()" class="btn btn-danger">Cancelar</button>
+            <button (click)="editar()" class="btn btn-success"
+                [disabled]="!cadastroOperadorForm.form.valid">Salvar</button>
+        </div>
+    </mat-card-actions>
+
+</mat-card>
