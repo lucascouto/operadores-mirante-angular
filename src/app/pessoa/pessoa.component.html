@@ -1,33 +1,54 @@
-<h1>Lista de Pessoas</h1>
+<div class="table-wrapper" *ngIf="pessoas">
+    <div class="table-title">
+        <div class="row">
+            <div class="col-sm-6">
+                <h2>Gerenciador de Pessoas</h2>
+            </div>
+            <div class="col-sm-6">
+                <a routerLink="/pessoas/cadastrar" class="btn btn-success"><i class="material-icons">&#xE147;</i>
+                    <span>Adicionar nova pessoa</span></a>
+            </div>
+        </div>
+    </div>
+    <table class="table table-striped table-hover" *ngIf="pessoas.length > 0">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Documento</th>
+                <th>Data de Nascimento</th>
+                <th>Nome do Pai</th>
+                <th>Nome da Mãe</th>
+                <th>Operador</th>
+                <th>Telefones</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pessoa of pessoas">
+                <td>{{ pessoa.nome }}</td>
+                <td>{{ pessoa.documento }}</td>
+                <td>{{ pessoa.dataNascimento }}</td>
+                <td>{{ pessoa.nomePai }}</td>
+                <td>{{ pessoa.nomeMae }} </td>
+                <td>{{ pessoa.loginOperador }} </td>
+                <td>
+                    <span *ngFor="let telefone of pessoa.telefones">
+                        ({{ telefone.ddd }}) {{ telefone.numero }} <br />
+                    </span>
+                </td>
+                <td>
+                    <a routerLink="/pessoas/editar/{{ pessoa.id }}" class="edit"><i class="material-icons"
+                            title="Edit">&#xE254;</i></a>
+                    <a routerLink="/pessoas/deletar/{{ pessoa.id }}" class="delete"><i class="material-icons"
+                            title="Delete">&#xE872;</i></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-<table *ngIf="pessoas">
-    <thead>
-        <td>Nome</td>
-        <td>Documento</td>
-        <td>Data de Nascimento</td>
-        <td>Nome do Pai</td>
-        <td>Nome da Mãe</td>
-        <td>Operador</td>
-        <td>Telefones</td>
-        <td></td>
-    </thead>
-    <tbody>
-        <tr *ngFor="let pessoa of pessoas">
-            <td>{{ pessoa.nome }}</td>
-            <td>{{ pessoa.documento }}</td>
-            <td>{{ pessoa.dataNascimento }}</td>
-            <td>{{ pessoa.nomePai }}</td>
-            <td>{{ pessoa.nomeMae }} </td>
-            <td>{{ pessoa.loginOperador }} </td>
-            <td>
-                <span *ngFor="let telefone of pessoa.telefones">
-                    ({{ telefone.ddd }}) {{ telefone.numero }} <br />
-                </span>
-            </td>
-            <td>
-                <a routerLink="/pessoas/editar/{{ pessoa.id }}">EDITAR</a> |
-                <a routerLink="/pessoas/deletar/{{ pessoa.id }}">REMOVER</a>
-            </td>
-        </tr>
-    </tbody>
-</table>
+    <div *ngIf="pessoas.length == 0">
+        <div class="alert alert-info">
+            Não há pessoas cadastradas no sistema.
+        </div>
+    </div>
+</div>

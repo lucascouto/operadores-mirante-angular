@@ -10,7 +10,7 @@
     <br />
 
     <mat-card-content>
-        <form (ngSubmit)="cadastrar()" #cadastroOperadorForm="ngForm">
+        <form #cadastroOperadorForm="ngForm">
 
             <div class="form-group">
                 <mat-form-field>
@@ -71,7 +71,7 @@
     <mat-card-actions>
         <div class="modal-footer">
             <button (click)="cancelar()" class="btn btn-danger">Cancelar</button>
-            <button type="submit" class="btn btn-success"
+            <button type="button" (click)="cadastrar()" class="btn btn-success"
                 [disabled]="!cadastroOperadorForm.form.valid">Cadastrar</button>
         </div>
     </mat-card-actions>
