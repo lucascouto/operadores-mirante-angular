@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-app';
+
+  roleOperador: string = localStorage.getItem('roleOperador');
+
+  constructor(
+    private route: Router
+  ) { }
+
+
+
+  logout() {
+    localStorage.clear()
+    this.route.navigate(['/'])
+  }
+
 }

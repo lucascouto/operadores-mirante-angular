@@ -31,4 +31,8 @@ export class EditarPessoaComponent implements OnInit {
       .subscribe(() => this._route.navigate(['/pessoas']))
   }
 
+  cancelar() {
+    this._route.navigate(['/pessoas'])
+  }
+
 }

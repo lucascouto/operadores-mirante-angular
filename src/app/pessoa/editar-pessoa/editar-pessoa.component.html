@@ -115,6 +115,8 @@
     </mat-card-content>
     <mat-card-actions>
         <div class="modal-footer">
+            <button (click)="cancelar()" class="btn btn-danger">Cancelar</button>
+            <a routerLink="/telefones/cadastrar/{{ request.id }}" class="btn btn-primary">Cadastrar Telefone</a>
             <button (click)="editar()" class="btn btn-success"
                 [disabled]="!cadastroPessoaForm.form.valid">Salvar</button>
         </div>

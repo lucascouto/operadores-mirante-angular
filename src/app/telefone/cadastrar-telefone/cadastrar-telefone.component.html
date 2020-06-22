@@ -1,17 +1,52 @@
-<h2>Cadastrar Telefone</h2>
+<mat-card style="margin: 0 auto; width: 50%">
 
-<div *ngIf="telefone">
-    <label>DDD:
-        <input type="text" [(ngModel)]="telefone.ddd">
-    </label>
-    <br /><br />
-    <label>Numero:
-        <input type="text" [(ngModel)]="telefone.numero">
-    </label>
-    <br /><br />
-    <label>Tipo:
-        <input type="text" [(ngModel)]="telefone.tipo">
-    </label>
-    <br /><br />
-    <button (click)="cadastrar()">Cadastrar</button>
-</div>
+
+    <mat-card-header>
+        <mat-card-title>
+            CADASTRAR TELEFONE
+        </mat-card-title>
+    </mat-card-header>
+
+    <br />
+
+    <mat-card-content>
+
+        <form #cadastroTelefoneForm="ngForm">
+            <mat-form-field>
+                <mat-label for="Tipo">Tipo</mat-label>
+                <mat-select matNativeControl [(ngModel)]="telefone.tipo" name="tipo" required>
+                    <mat-option value="celular">Celular</mat-option>
+                    <mat-option value="fixo">Fixo</mat-option>
+                    <mat-option value="comercial">Comercial</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <mat-form-field>
+                        <mat-label for="ddd">DDD</mat-label>
+                        <input matInput type="text" mask="000" [(ngModel)]="telefone.ddd" name="ddd" required>
+                    </mat-form-field>
+                </div>
+                <div class="col-md-10">
+                    <mat-form-field>
+                        <mat-label for="Número">Número</mat-label>
+                        <input matInput type="text" mask="0000000000" [(ngModel)]="telefone.numero" name="numero"
+                            required minlength="8">
+                    </mat-form-field>
+                </div>
+            </div>
+        </form>
+
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="modal-footer">
+            <button (click)="cancelar()" class="btn btn-danger">Cancelar</button>
+            <button (click)="cadastrar()" class="btn btn-success"
+                [disabled]="!cadastroTelefoneForm.form.valid">Cadastrar</button>
+        </div>
+    </mat-card-actions>
+
+
+
+</mat-card>

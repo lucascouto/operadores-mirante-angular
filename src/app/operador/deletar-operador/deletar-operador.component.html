@@ -1,14 +1,30 @@
-<h2>Voce deseja remover este operador?</h2>
+<mat-card style="margin: 0 auto; width: 50%">
+    <mat-card-header>
+        <mat-card-title>
+            DESEJA REALMENTE DELETAR ESSE OPERADOR?
+        </mat-card-title>
+    </mat-card-header>
 
-<div *ngIf="operador">
-    <label>Id: <strong> {{ operador.id }} </strong></label>
-    <br />
-    <label>Nome: <strong> {{ operador.nome }} </strong></label>
-    <br />
-    <label>Login: <strong> {{ operador.login }} </strong> </label>
-    <br />
-    <label>Senha: <strong> {{ operador.senha }} </strong> </label>
-    <br /><br />
-    <button (click)="deletar()">Confirmar</button>
-    <button (click)="cancelar()">Cancelar</button>
-</div>
+
+
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-6">
+                <label>Nome: <strong> {{ operador.nome }} </strong></label>
+            </div>
+            <div class="col-md-6">
+                <label>Login: <strong> {{ operador.login }} </strong> </label>
+            </div>
+        </div>
+
+
+
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="modal-footer">
+            <button (click)="cancelar()" class="btn btn-danger">Cancelar</button>
+            <button (click)="deletar()" class="btn btn-success">Confirmar</button>
+        </div>
+    </mat-card-actions>
+
+</mat-card>

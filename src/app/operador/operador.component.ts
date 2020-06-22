@@ -11,6 +11,8 @@ export class OperadorComponent implements OnInit {
 
   operadores: Array<Operador>
 
+  roleOperador: String = localStorage.getItem('roleOperador')
+
   constructor(private operadorService: OperadorService) { }
 
   ngOnInit(): void {

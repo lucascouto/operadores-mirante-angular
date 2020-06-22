@@ -1,24 +1,40 @@
-<h2>Voce deseja remover essa pessoa?</h2>
+<mat-card style="margin: 0 auto; width: 50%">
+    <mat-card-header>
+        <mat-card-title>
+            DESEJA REALMENTE DELETAR ESSA PESSOA?
+        </mat-card-title>
+    </mat-card-header>
 
-<div *ngIf="pessoa">
-    <label>Nome: <strong> pessoa.nome </strong></label>
-    <br /><br />
-    <label>Documento: <strong> pessoa.documento </strong>
+    <br />
 
-    </label>
-    <br /><br />
-    <label>Data de Nascimento: <strong> pessoa.dataNascimento </strong>
+    <mat-card-content>
+        <label>Nome: <strong> {{ pessoa.nome }} </strong></label>
+        <br /><br />
+        <label *ngIf="pessoa.tipoPessoa=='F'">CPF: <strong> {{pessoa.documento | mask: '000.000.000-00'}}
+            </strong></label>
+        <label *ngIf="pessoa.tipoPessoa=='J'">CNPJ: <strong> {{pessoa.documento | mask: '00.000.000/0000-00'}}
+            </strong></label>
+        <br /><br />
+        <div *ngIf="pessoa.tipoPessoa=='F'">
+            <label>Data de Nascimento: <strong> {{pessoa.dataNascimento | date: 'dd/MM/yyyy'}} </strong>
 
-    </label>
-    <br /><br />
-    <label>Nome do pai: <strong> pessoa.nomePai </strong>
+            </label>
+            <br /><br />
+            <label>Nome do pai: <strong> {{pessoa.nomePai}} </strong>
 
-    </label>
-    <br /><br />
-    <label>Nome da mãe: <strong> pessoa.nomeMae </strong>
+            </label>
+            <br /><br />
+            <label>Nome da mãe: <strong> {{pessoa.nomeMae}} </strong>
+            </label>
+        </div>
+        <br /><br />
+    </mat-card-content>
+    <mat-card-actions>
+        <div class="modal-footer">
+            <button (click)="cancelar()" class="btn btn-danger">Cancelar</button>
+            <button (click)="deletar()" class="btn btn-success">Remover</button>
 
-    </label>
-    <br /><br />
-    <button (click)="deletar()">Remover</button>
-    <button (click)="cancelar()">Cancelar</button>
-</div>
+        </div>
+    </mat-card-actions>
+
+</mat-card>

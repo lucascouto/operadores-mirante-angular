@@ -22,6 +22,7 @@ export class CadastrarOperadorComponent implements OnInit {
     nome: "",
     login: "",
     senha: "",
+    role: "GERENTE",
     createdAt: new Date(),
     updatedAt: new Date()
   }

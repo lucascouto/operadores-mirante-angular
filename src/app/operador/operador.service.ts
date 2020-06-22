@@ -34,4 +34,9 @@ export class OperadorService {
     return this.http.delete<Operador>(_url)
   }
 
+  buscarPorLogin(login: string): Observable<Operador> {
+    const _url = `http://localhost:8080/api/operadorlogado/${login}`
+    return this.http.get<Operador>(_url)
+  }
+
 }

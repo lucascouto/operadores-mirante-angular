@@ -4,7 +4,7 @@
             <div class="col-sm-6">
                 <h2>Gerenciador de Operadores</h2>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" *ngIf="roleOperador == 'ADMIN'">
                 <a routerLink="/operadores/cadastrar" class="btn btn-success"><i class="material-icons">&#xE147;</i>
                     <span>Adicionar novo operador</span></a>
 
@@ -16,7 +16,7 @@
             <tr>
                 <th>Nome</th>
                 <th>Login</th>
-                <th>Senha</th>
+                <th>Tipo</th>
                 <th>Data de Criação</th>
                 <th>Data de Modificação</th>
                 <th></th>
@@ -27,7 +27,7 @@
 
                 <td>{{ operador.nome }}</td>
                 <td>{{ operador.login }}</td>
-                <td>{{ operador.senha }}</td>
+                <td>{{ operador.role }}</td>
                 <td>{{ operador.createdAt | date: 'dd/MM/yyyy - hh:mm' }}</td>
                 <td>{{ operador.updatedAt | date: 'dd/MM/yyyy - hh:mm' }} </td>
                 <td>
