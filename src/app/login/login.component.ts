@@ -49,10 +49,15 @@ export class LoginComponent implements OnInit {
             localStorage.setItem('login', response.login)
             localStorage.setItem('role', response.role)
             localStorage.setItem('mostrarMenu', JSON.stringify(this.globals.mostrarMenu))
+
+            if (response.role === 'ADMIN')
+              this.route.navigate(['/operadores'])
+            else
+              this.route.navigate(['/pessoas'])
+
           })
 
-      }).add(() => this.route.navigate(['/pessoas']))
-
+      })
   }
 
 

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PessoaService } from '../pessoa.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pessoa, PessoaCadastro } from '../pessoa.model';
+import { GlobalsService } from 'src/app/globals.service';
 
 @Component({
   selector: 'app-editar-pessoa',
@@ -16,7 +17,8 @@ export class EditarPessoaComponent implements OnInit {
   constructor(
     private pessoaService: PessoaService,
     private route: ActivatedRoute,
-    private _route: Router
+    private _route: Router,
+    public globals: GlobalsService
   ) { }
 
   ngOnInit(): void {

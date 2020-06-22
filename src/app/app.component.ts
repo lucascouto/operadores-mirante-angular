@@ -12,7 +12,7 @@ export class AppComponent {
 
   constructor(
     private route: Router,
-    private globals: GlobalsService
+    public globals: GlobalsService
   ) { }
 
   logout() {

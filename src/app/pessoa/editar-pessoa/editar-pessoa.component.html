@@ -2,7 +2,7 @@
 
     <mat-card-header>
         <mat-card-title>
-            EDITAR PESSOA {{ request.id }}
+            EDITAR PESSOA
         </mat-card-title>
     </mat-card-header>
 
@@ -41,7 +41,7 @@
                     <mat-form-field>
                         <mat-label for="documento">CPF</mat-label>
                         <input matInput id="documento" mask="000.000.000-00" type="text" [(ngModel)]="request.documento"
-                            name="documento" required #cpf="ngModel">
+                            name="documento" required #cpf="ngModel" readonly>
                     </mat-form-field>
                     <div *ngIf="cpf.invalid && (cpf.dirty || cpf.touched)" class="error">
                         <div *ngIf="cpf.errors.required">
@@ -54,7 +54,7 @@
                     <mat-form-field>
                         <mat-label for="documento">CNPJ</mat-label>
                         <input matInput id="documento" mask="00.000.000/0000-00" type="text"
-                            [(ngModel)]="request.documento" name="documento" required #cnpj="ngModel">
+                            [(ngModel)]="request.documento" name="documento" required #cnpj="ngModel" readonly>
                     </mat-form-field>
                     <div *ngIf="cnpj.invalid && (cnpj.dirty || cnpj.touched)" class="error">
                         <div *ngIf="cnpj.errors.required">
@@ -87,36 +87,32 @@
                 <div class="form-group">
                     <mat-form-field>
                         <mat-label for="nomePai">Nome do pai</mat-label>
-                        <input matInput id="nomePai" type="text" [(ngModel)]="request.nomePai" name="nomePai" required
+                        <input matInput id="nomePai" type="text" [(ngModel)]="request.nomePai" name="nomePai"
                             maxlength="100" #nomePai="ngModel">
                     </mat-form-field>
-                    <div *ngIf="nomePai.invalid && (nomePai.dirty || nomePai.touched)" class="error">
-                        <div *ngIf="nomePai.errors.required">
-                            Nome do pai é obrigatório.
-                        </div>
-                    </div>
+
                 </div>
 
                 <div class="form-group">
                     <mat-form-field>
                         <mat-label for="nomeMae">Nome da mãe</mat-label>
-                        <input matInput id="nomeMae" type="text" [(ngModel)]="request.nomeMae" name="nomeMae" required
+                        <input matInput id="nomeMae" type="text" [(ngModel)]="request.nomeMae" name="nomeMae"
                             maxlength="100" #nomeMae="ngModel">
                     </mat-form-field>
-                    <div *ngIf="nomeMae.invalid && (nomeMae.dirty || nomeMae.touched)" class="error">
-                        <div *ngIf="nomeMae.errors.required">
-                            Nome da mãe é obrigatório.
-                        </div>
-                    </div>
+
                 </div>
+
+
             </div>
 
         </form>
+
     </mat-card-content>
     <mat-card-actions>
         <div class="modal-footer">
             <button (click)="cancelar()" class="btn btn-danger">Cancelar</button>
-            <a routerLink="/telefones/cadastrar/{{ request.id }}" class="btn btn-primary">Cadastrar Telefone</a>
+            <a *ngIf="globals.role == 'GERENTE'" routerLink="/telefones/cadastrar/{{ request.id }}"
+                class="btn btn-primary">Cadastrar Telefone</a>
             <button (click)="editar()" class="btn btn-success"
                 [disabled]="!cadastroPessoaForm.form.valid">Salvar</button>
         </div>

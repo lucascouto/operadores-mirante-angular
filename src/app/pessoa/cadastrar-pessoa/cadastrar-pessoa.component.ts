@@ -3,6 +3,7 @@ import { Pessoa, PessoaCadastro } from '../pessoa.model';
 import { Router } from '@angular/router';
 import { PessoaService } from '../pessoa.service';
 import * as Inputmask from "inputmask";
+import { GlobalsService } from 'src/app/globals.service';
 
 @Component({
   selector: 'app-cadastrar-pessoa',
@@ -18,7 +19,7 @@ export class CadastrarPessoaComponent implements OnInit {
     dataNascimento: "",
     nomePai: "",
     nomeMae: "",
-    loginOperador: "",
+    loginOperador: this.globals.login,
     tipoPessoa: ""
   }
 
@@ -28,7 +29,8 @@ export class CadastrarPessoaComponent implements OnInit {
 
   constructor(
     private pessoaService: PessoaService,
-    private route: Router
+    private route: Router,
+    public globals: GlobalsService
   ) { }
 
   ngOnInit(): void {

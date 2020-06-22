@@ -12,7 +12,7 @@ export class OperadorComponent implements OnInit {
 
   operadores: Array<Operador>
 
-  constructor(private operadorService: OperadorService, private globals: GlobalsService) { }
+  constructor(private operadorService: OperadorService, public globals: GlobalsService) { }
 
   ngOnInit(): void {
     this.operadorService.getOperadores()

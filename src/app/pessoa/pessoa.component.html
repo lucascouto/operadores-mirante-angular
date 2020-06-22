@@ -38,10 +38,10 @@
                     </span>
                 </td>
                 <td>
-                    <a routerLink="/pessoas/editar/{{ pessoa.id }}" class="edit"><i class="material-icons"
-                            title="Edit">&#xE254;</i></a>
-                    <a routerLink="/pessoas/deletar/{{ pessoa.id }}" class="delete"><i class="material-icons"
-                            title="Delete">&#xE872;</i></a>
+                    <a *ngIf="globals.role == 'GERENTE'" routerLink="/pessoas/editar/{{ pessoa.id }}" class="edit"><i
+                            class="material-icons" title="Edit">&#xE254;</i></a>
+                    <a *ngIf="globals.role == 'GERENTE'" routerLink="/pessoas/deletar/{{ pessoa.id }}" class="delete"><i
+                            class="material-icons" title="Delete">&#xE872;</i></a>
                 </td>
             </tr>
         </tbody>

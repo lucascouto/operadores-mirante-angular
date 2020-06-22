@@ -12,7 +12,7 @@ export class PessoaComponent implements OnInit {
 
   pessoas: Array<Pessoa>
 
-  constructor(private pessoaService: PessoaService, private globals: GlobalsService) { }
+  constructor(private pessoaService: PessoaService, public globals: GlobalsService) { }
 
   ngOnInit(): void {
     this.pessoaService.getPessoas()
