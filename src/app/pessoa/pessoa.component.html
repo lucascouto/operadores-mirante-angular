@@ -4,7 +4,7 @@
             <div class="col-sm-6">
                 <h2>Gerenciador de Pessoas</h2>
             </div>
-            <div class="col-sm-6">
+            <div *ngIf="globals.role == 'GERENTE'" class="col-sm-6">
                 <a routerLink="/pessoas/cadastrar" class="btn btn-success"><i class="material-icons">&#xE147;</i>
                     <span>Adicionar nova pessoa</span></a>
             </div>

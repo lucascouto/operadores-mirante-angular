@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { GlobalsService } from './globals.service';
 
 @Component({
   selector: 'app-root',
@@ -9,17 +10,15 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'angular-app';
 
-  roleOperador: string = localStorage.getItem('roleOperador');
-
   constructor(
-    private route: Router
+    private route: Router,
+    private globals: GlobalsService
   ) { }
-
-
 
   logout() {
     localStorage.clear()
     this.route.navigate(['/'])
+    this.globals.mostrarMenu = false
   }
 
 }

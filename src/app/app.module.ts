@@ -31,6 +31,7 @@ import { LoginComponent } from './login/login.component';
 
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
+import { GlobalsService } from './globals.service';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,7 @@ import { AuthInterceptor } from './auth.interceptor';
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }],
+    }, GlobalsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

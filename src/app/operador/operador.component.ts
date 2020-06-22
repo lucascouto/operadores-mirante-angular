@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OperadorService } from './operador.service';
 import { Operador } from './operador.model';
+import { GlobalsService } from '../globals.service';
 
 @Component({
   selector: 'app-operador',
@@ -11,9 +12,7 @@ export class OperadorComponent implements OnInit {
 
   operadores: Array<Operador>
 
-  roleOperador: String = localStorage.getItem('roleOperador')
-
-  constructor(private operadorService: OperadorService) { }
+  constructor(private operadorService: OperadorService, private globals: GlobalsService) { }
 
   ngOnInit(): void {
     this.operadorService.getOperadores()

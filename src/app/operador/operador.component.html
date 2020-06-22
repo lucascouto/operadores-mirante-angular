@@ -4,7 +4,7 @@
             <div class="col-sm-6">
                 <h2>Gerenciador de Operadores</h2>
             </div>
-            <div class="col-sm-6" *ngIf="roleOperador == 'ADMIN'">
+            <div class="col-sm-6" *ngIf="globals.role == 'ADMIN'">
                 <a routerLink="/operadores/cadastrar" class="btn btn-success"><i class="material-icons">&#xE147;</i>
                     <span>Adicionar novo operador</span></a>
 
@@ -33,8 +33,8 @@
                 <td>
                     <a routerLink="/operadores/editar/{{ operador.id }}" class="edit"><i class="material-icons"
                             title="Edit">&#xE254;</i></a>
-                    <a routerLink="/operadores/deletar/{{ operador.id }}" class="delete"><i class="material-icons"
-                            title="Delete">&#xE872;</i></a>
+                    <a *ngIf="operador.role != 'ADMIN'" routerLink="/operadores/deletar/{{ operador.id }}"
+                        class="delete"><i class="material-icons" title="Delete">&#xE872;</i></a>
                 </td>
             </tr>
 

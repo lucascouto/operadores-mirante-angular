@@ -31,18 +31,9 @@
             <div class="form-group">
                 <mat-form-field>
                     <mat-label for="login">Login</mat-label>
-                    <input matInput type="email" id="login" [(ngModel)]="request.login" name="login" required
-                        maxlength="15" pattern="[a-zA-Z]*" #login="ngModel">
+                    <input matInput type="email" id="login" [(ngModel)]="request.login" name="login" readonly>
                 </mat-form-field>
-                <div *ngIf="login.invalid && (login.dirty || login.touched)" class="error">
-                    <div *ngIf="login.errors.required">
-                        Login é obrigatório.
-                    </div>
 
-                    <div *ngIf="login.errors.pattern">
-                        Login pode conter apenas letras e os caracteres '-' e '_'
-                    </div>
-                </div>
             </div>
             <div class="form-group">
                 <mat-form-field>
