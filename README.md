@@ -6,4 +6,6 @@ Esse projeto em Angular, foi desenvolvido para o desafio proposto pela Mirante T
 
 Antes de rodar a aplicação Angular, é necessário baixar e rodar a API localmente que se encontra nesse link: https://github.com/lucascouto/operadores-mirante. Nesse repositório você encontra mais informações sobre como rodar a API.
 
+*A API roda na porta 8080
+
 Uma vez baixado e rodando a API, rode a aplicação Angular pela linha de comando através do comando `ng serve`.
