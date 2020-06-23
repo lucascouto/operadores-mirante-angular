@@ -11,12 +11,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class CadastrarOperadorComponent implements OnInit {
 
-  form = new FormGroup({
-    nome: new FormControl('', Validators.required),
-    login: new FormControl('', Validators.required),
-    senha: new FormControl('', [Validators.required, Validators.minLength(6)])
-  })
-
   request: Operador = {
     id: 0,
     nome: "",

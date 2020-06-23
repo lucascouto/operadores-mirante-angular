@@ -3,11 +3,12 @@ import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/c
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { GlobalsService } from './globals.service';
 
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-    constructor(private route: Router) { }
+    constructor(private route: Router, private globals: GlobalsService) { }
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
@@ -15,6 +16,8 @@ export class ErrorInterceptor implements HttpInterceptor {
                 // desloga o usuario caso de um erro de autenticacao ou autorizacao
                 localStorage.clear()
                 this.route.navigate(['/'])
+                this.globals.mostrarMenu = false
+
             }
 
             const error = err.error.message || err.statusText;
