@@ -27,7 +27,7 @@
 
                 <td>{{ operador.nome }}</td>
                 <td>{{ operador.login }}</td>
-                <td>{{ operador.role }}</td>
+                <td>{{ operador.role | slice:5 }}</td>
                 <td>{{ operador.createdAt | date: 'dd/MM/yyyy - hh:mm' }}</td>
                 <td>{{ operador.updatedAt | date: 'dd/MM/yyyy - hh:mm' }} </td>
                 <td>

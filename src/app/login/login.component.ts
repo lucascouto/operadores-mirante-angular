@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
           .subscribe(response => {
             this.globals.nome = response.nome
             this.globals.login = response.login
-            this.globals.role = response.role
+            this.globals.role = response.role.substr(5)
             this.globals.mostrarMenu = true
 
             //ARMAZENA AS VARIAVEIS DE SESSAO NO LOCAL STORAGE
@@ -47,10 +47,10 @@ export class LoginComponent implements OnInit {
             //NO REFRESH DA PAGINA
             localStorage.setItem('nome', response.nome)
             localStorage.setItem('login', response.login)
-            localStorage.setItem('role', response.role)
+            localStorage.setItem('role', response.role.substr(5))
             localStorage.setItem('mostrarMenu', JSON.stringify(this.globals.mostrarMenu))
 
-            if (response.role === 'ADMIN')
+            if (response.role === 'ROLE_ADMIN')
               this.route.navigate(['/operadores'])
             else
               this.route.navigate(['/pessoas'])

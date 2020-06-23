@@ -33,6 +33,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { GlobalsService } from './globals.service';
 import { VisualizarPessoaComponent } from './pessoa/visualizar-pessoa/visualizar-pessoa.component';
+import { ErrorInterceptor } from './error.intercept';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,7 @@ import { VisualizarPessoaComponent } from './pessoa/visualizar-pessoa/visualizar
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }, GlobalsService],
+    }, GlobalsService, { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
