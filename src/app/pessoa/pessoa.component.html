@@ -19,7 +19,7 @@
                 <th>Nome do Pai</th>
                 <th>Nome da Mãe</th>
                 <th>Operador</th>
-                <th>Telefones</th>
+
                 <th></th>
             </tr>
         </thead>
@@ -32,14 +32,15 @@
                 <td>{{ pessoa.nomePai }}</td>
                 <td>{{ pessoa.nomeMae }} </td>
                 <td>{{ pessoa.loginOperador }} </td>
+
                 <td>
-                    <span *ngFor="let telefone of pessoa.telefones">
-                        ({{ telefone.ddd }}) {{ telefone.numero }} <br />
-                    </span>
-                </td>
-                <td>
+
+                    <a routerLink="/pessoas/{{ pessoa.id }}" class="view"><i class="material-icons"
+                            title="Edit">remove_red_eye</i></a>
                     <a *ngIf="globals.role == 'GERENTE'" routerLink="/pessoas/editar/{{ pessoa.id }}" class="edit"><i
                             class="material-icons" title="Edit">&#xE254;</i></a>
+
+
                     <a *ngIf="globals.role == 'GERENTE'" routerLink="/pessoas/deletar/{{ pessoa.id }}" class="delete"><i
                             class="material-icons" title="Delete">&#xE872;</i></a>
                 </td>

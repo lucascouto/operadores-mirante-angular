@@ -10,6 +10,7 @@ import { EditarPessoaComponent } from './pessoa/editar-pessoa/editar-pessoa.comp
 import { DeletarPessoaComponent } from './pessoa/deletar-pessoa/deletar-pessoa.component';
 import { CadastrarTelefoneComponent } from './telefone/cadastrar-telefone/cadastrar-telefone.component';
 import { LoginComponent } from './login/login.component';
+import { VisualizarPessoaComponent } from './pessoa/visualizar-pessoa/visualizar-pessoa.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: "operadores/editar/:id", component: EditarOperadorComponent },
   { path: "operadores/deletar/:id", component: DeletarOperadorComponent },
   { path: "pessoas", component: PessoaComponent },
+  { path: "pessoas/:id", component: VisualizarPessoaComponent },
   { path: "pessoas/cadastrar", component: CadastrarPessoaComponent },
   { path: "pessoas/editar/:id", component: EditarPessoaComponent },
   { path: "pessoas/deletar/:id", component: DeletarPessoaComponent },

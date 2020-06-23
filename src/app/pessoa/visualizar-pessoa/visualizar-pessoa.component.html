@@ -1,0 +1,61 @@
+<mat-card style="margin: 0 auto; width: 50%">
+    <mat-card-header>
+        <mat-card-title>
+            Dados da Pessoa
+        </mat-card-title>
+    </mat-card-header>
+
+    <br />
+
+    <mat-card-content>
+        <label>Nome: <strong> {{ pessoa.nome }} </strong></label>
+        <br /><br />
+        <label *ngIf="pessoa.tipoPessoa=='F'">CPF: <strong> {{pessoa.documento | mask: '000.000.000-00'}}
+            </strong></label>
+        <label *ngIf="pessoa.tipoPessoa=='J'">CNPJ: <strong> {{pessoa.documento | mask: '00.000.000/0000-00'}}
+            </strong></label>
+        <br /><br />
+        <div *ngIf="pessoa.tipoPessoa=='F'">
+            <label>Data de Nascimento: <strong> {{pessoa.dataNascimento | date: 'dd/MM/yyyy'}} </strong>
+
+            </label>
+            <br /><br />
+            <label>Nome do pai: <strong> {{pessoa.nomePai}} </strong>
+
+            </label>
+            <br /><br />
+            <label>Nome da mãe: <strong> {{pessoa.nomeMae}} </strong>
+            </label>
+        </div>
+        <br /><br />
+    </mat-card-content>
+    <hr />
+
+    <mat-card-header>
+        <mat-card-title>
+            Telefones
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div *ngIf="pessoa.telefones.length == 0" class="alert alert-info">
+            Não há telefones cadastrados para essa pessoa.
+        </div>
+
+        <div *ngFor="let telefone of pessoa.telefones">
+            <label>{{ telefone.tipo }}: <strong> {{telefone.ddd + telefone.numero | mask: '(00) 00000-0000'}}
+                </strong></label>
+        </div>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <div class="modal-footer">
+            <a *ngIf="globals.role == 'GERENTE'" routerLink="/telefones/cadastrar/{{ pessoa.id }}"
+                class="btn btn-primary">Cadastrar Telefone</a>
+            <button (click)="voltar()" class="btn btn-success">Voltar</button>
+
+
+        </div>
+    </mat-card-actions>
+
+</mat-card>

@@ -32,6 +32,7 @@ import { LoginComponent } from './login/login.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth.interceptor';
 import { GlobalsService } from './globals.service';
+import { VisualizarPessoaComponent } from './pessoa/visualizar-pessoa/visualizar-pessoa.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { GlobalsService } from './globals.service';
     DeletarPessoaComponent,
     TelefoneComponent,
     CadastrarTelefoneComponent,
-    LoginComponent
+    LoginComponent,
+    VisualizarPessoaComponent
   ],
   imports: [
     BrowserModule,

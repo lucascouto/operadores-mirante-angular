@@ -88,7 +88,7 @@ table.table tr th, table.table tr td {
 }
 
 table.table tr th:last-child {
-    width: 100px;
+    width: 130px;
 }
 
 table.table-striped tbody tr:nth-of-type(odd) {
@@ -129,6 +129,10 @@ table.table td a.edit {
 
 table.table td a.delete {
     color: #F44336;
+}
+
+table.table td a.view {
+    color: #2196F3;
 }
 
 table.table td i {
